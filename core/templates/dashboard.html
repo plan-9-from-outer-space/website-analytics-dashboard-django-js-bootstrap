@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <div class="my-3 mx-3">
+        <h1 class="border">Analytics Dashboard</h1>
+        <div class="d-flex border">
+            <div class="card col-3 mx-3"> <!-- col-3 mx-3 -->
+                <div class="card-body">
+                  <h5 class="card-title text-primary">Total Views</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Yearly</h6>
+                  <div>
+                    <canvas class="border" id="total-views-chart"></canvas>
+                  </div>
+                  <h1 class="card-text text-end">5,000,008</h1>
+                </div>
+            </div>
+            <div class="card col-3 mx-3">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">Revenue</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Annual</h6>
+                  <div>
+                    <canvas class="border" id="revenue-chart"></canvas>
+                  </div>
+                  <h1 class="card-text text-end">$835,800</h1>
+                </div>
+            </div>
+            <div class="card col-3 mx-3 h-25">
+                <div class="card-body">
+                  <h5 class="card-title text-primary">Growth Rate</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Yearly</h6>
+                  {% comment %} <div>
+                    <canvas class="border" id="growth-rate-chart"></canvas>
+                  </div> {% endcomment %}
+                  <h1 class="card-text text-end text-success">79%</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="border">
+          <div class="mx-3 my-5">
+            <h3 class="text-center">Subscriber Count</h3>
+            <div class="bg-secondary bg-opacity-25 px-5 py-3 rounded">
+              <canvas class="border" id="subscriber-count-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex border">
+          <div>
+            <!-- Pie chart -->
+            <div class="card mx-3 my-5">
+              <h4 class="text-center">Traffic Sources</h4>
+              <canvas class="border" id="traffic-sources-chart"></canvas>
+            </div>
+            <!-- Datatable -->
+          </div>
+          <div class="border col-lg-8">
+            <h3 class="text-center">Most Watched Videos</h3>
+            <table id="datatable"></table>
+          </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src={% static 'assets/js/index.js' %}></script>
+{% endblock scripts %}
+

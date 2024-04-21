@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'images/img.icons8.png' %}">
+    <title>Analytics Dashboard</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <!-- Charts JS -->
+    <!-- <script src="https://cdnjs.com/libraries/Chart.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Simple Data Tables -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Analytics Dashboard App</h1>
+        <div class = "col-md-10">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</body>
+
+<script>
+  const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    // type: 'line',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [
+      {
+        type: 'line',
+        label: '# of Votes',
+        // data: [12, 19, 3, 5, 2, 3],
+        data: [6, 11, 13, 6, 9, 4],
+        borderWidth: 1,
+        tension: 0.2,
+        order: 1,
+        // backgroundColor: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+        borderColor: 'Black'
+      },
+      {
+        type: 'bar',
+        label: '# did not Vote',
+        data: [6, 11, 13, 6, 9, 4],
+        borderWidth: 1,
+        order: 2,
+        fill: {
+            target: 'origin',
+            above: 'rgba(0, 0, 255, 0.75)',   // Area will be green above the origin
+            below: 'rgba(0, 0, 255, 0.75)'    // And blue below the origin
+        },
+        backgroundColor: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+      }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  }
+  );
+</script>
+
+</html>
+
