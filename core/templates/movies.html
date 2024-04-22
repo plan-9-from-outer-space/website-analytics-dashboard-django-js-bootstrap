@@ -1,0 +1,17 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="my-3 mx-3">
+        <a class="btn btn-success" href="/api/export">Export Data</a>
+        <table id="datatable"></table>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src={% static 'assets/js/movies.js' %}></script>
+{% endblock scripts %}
+

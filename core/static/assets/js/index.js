@@ -2,7 +2,9 @@ const totalViewChart = document.getElementById("total-views-chart");
 const revenueChart = document.getElementById("revenue-chart");
 const subscriberCountChart = document.getElementById("subscriber-count-chart");
 const trafficSourcesChart = document.getElementById("traffic-sources-chart");
-const datatable = document.getElementById("datatable");
+
+let myDatatable = document.getElementById("datatable");
+// const datatable = document.getElementById("datatable");
 
 const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
 const data = [65, 59, 80, 81, 56, 55, 40];
@@ -95,17 +97,7 @@ new Chart(trafficSourcesChart, {
   // }}}
 });
 
-// const rows = [
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
-//   ["Django Basic Tutorial", "16-11-2022", "72935"],
+// const testRows = [
 //   ["Django Basic Tutorial", "16-11-2022", "72935"],
 //   ["Django Basic Tutorial", "16-11-2022", "72935"],
 //   ["Django Basic Tutorial", "16-11-2022", "72935"],
@@ -130,12 +122,20 @@ let dtOptions = {
   },
 };
 
-let dataTable = new simpleDatatables.DataTable("#datatable", dtOptions);
+// const myDatatable = document.getElementById("datatable");  // at top of file
+
+let dataTable = new simpleDatatables.DataTable(myDatatable, dtOptions);
+
+// let myTable = document.querySelector("#myTable");
+// let dataTable = new DataTable(myTable);
+// or
+// let dataTable = new DataTable("#myTable");
 
 fetch('/api/datatable')
     .then (res => res.json())
     .then (data => { 
-        console.log(data.data);
-        dataTable.insert(data.data);
+        // console.log(data.data);
+        dataTable.insert({data: data.data});
+        // dataTable.insert({data: testRows});
     });
 

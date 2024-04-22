@@ -38,11 +38,11 @@ To create a django database superuser:
     > goto http://127.0.0.1:8000/admin
     > Login as admin/admin
 
-To initially migrate the built-in django database:
+To initially migrate the built-in django database tables:
     > (stop the server, control-C)
     > python manage.py migrate
     > python manage.py runserver (restart the server)
-    * use the SQlite DB Browser tool to view the Django tables
+    * Use a DB Browser tool to view the database tables
 
 To migrate database/model changes (do this each time a db model change is made):
     > (stop the server, control-C)
@@ -50,6 +50,9 @@ To migrate database/model changes (do this each time a db model change is made):
     > python manage.py migrate
     > (optional) py manage.py sqlmigrate myapp 0001   # to see the SQL that will be used
     > python manage.py runserver (restart the server)
+    * Use a DB Browser tool to view the database tables
+    * Optionally, generate the database model using the built-in Django command:
+    > python manage.py inspectdb > app/models.py
 
 To collect all of the static files into the 'xxxxx/static' directory (for deployment):
     # Change "xxxxx" to whatever folder name you want ("assets", etc)
@@ -65,9 +68,12 @@ To start a Python shell:
 To use css bootstrap:
     * https://bootswatch.com/, OR
     * Use the Bootstrap CDN (css only, getbootstrap.com)
-
-# Note: App-specific css links must appear after the bootstrap css link.
+    # Note: App-specific css links must appear after the bootstrap css link.
 
 To check the entire project for issues:
     > python manage.py check
+
+To download the Harvard CS50 movies dataset:
+
+    * https://cdn.cs50.net/2021/fall/psets/7/movies.zip (wget optional)
 
